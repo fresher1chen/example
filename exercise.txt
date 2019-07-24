@@ -52,3 +52,4 @@ git 管理的是修改，并不是文件。
 3. 将本地库内容推送到远程库上 执行 git push -u origin master
 
 #删除远程库名 git remote rm 库名
+实验！
