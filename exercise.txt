@@ -10,3 +10,6 @@
 1.git log 查看修改日志 显示的是版本号，作者是谁，commit时写的注释 比较详细
 2.git log --pretty=oneline 显示的是版本号及修改的注释
 写了一些没有用的东西，用来版本回退
+3.通过git reset --hard 版本号 来回退到版本号相对应的版本
+或者 通过 git reset --hard head（尖角号） 来回退  一个尖角号代表前一个版本，两个为上上版本。。。往上100个版本为 head~100
+4.回退到上个版本号后 通过git log 看不到最新的版本号了，可以通过 git reflog 来查看所有操作，从而拿到最新版本的commit id，再通过 git reset --hard 版本号  指令进行版本的更新就ok
