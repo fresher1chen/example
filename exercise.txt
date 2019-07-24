@@ -39,4 +39,16 @@ git 管理的是修改，并不是文件。
 创建dev分支并进入 ： git checkout -b dev 
 查看所有分支 ： git branch   会在当前分支前面加上 * 
 切换两个分支 :  git checkout master 
+删除一个分支 ： git branch -d dev 
 
+
+>>>添加远程库
+首先看电脑是否有SSH key 有的话直接复制公钥，没有的话在shell中打开gitbash 创建SSH key 指令 ssh-keygen -t rsa -C"你的邮箱地址"
+拿到SSH key后，复制公钥，到github上查找 add sshkey 按钮，填入并创建。
+
+添加远程库：
+1. 先在github上 new 一个 repo，填写name，其余默认，然后create
+2. 在本地的git仓库中运行 git remote add origin 连接地址  # origin为库名，连接地址从github上获取，采用ssh连接。
+3. 将本地库内容推送到远程库上 执行 git push -u origin master
+
+#删除远程库名 git remote rm 库名
