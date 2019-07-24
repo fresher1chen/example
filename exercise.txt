@@ -1,3 +1,6 @@
-this is a damo
-this is a damo1
-this is a damo2
+在gitbase窗口，先进入一个文件夹
+输入 git init 初始化一个版本库
+创建一个需要入库的文件
+执行 git add 文件名   来将文件添到版本库的缓存区
+执行 git commit -m "这里填修改的内容"
+此时，文件添加到了仓库
