@@ -4,8 +4,12 @@
 执行 git add 文件名   来将文件修改添到版本库的缓存区
 执行 git commit -m "这里填修改的内容"
 此时，文件添加到了仓库（当前的分支master）
-此时修改了这个文件,但是没有将这个版本的内容添加到仓库 即没有 git add 文件名 >>> git commit "修改的内容" 此时 modify 是红色
+
+
+当修改了一个文件,但是没有将这个版本的内容添加到缓存区、仓库 即没有 git add 文件名 >>> git commit -m "修改的内容" 此时 modify 是红色
 在没有提交的（没有执行 git add 文件名）情况下，使用 git diff 文件名 来查看修改的具体内容,此时修改的内容在前端展示的 绿色字体
+
+
 >>>版本回退
 1. git log 查看修改日志 显示的是版本号，作者是谁，commit时写的注释 比较详细
 2. git log --pretty=oneline 显示的是版本号及修改的注释
@@ -13,6 +17,8 @@
 3. 通过git reset --hard 版本号 来回退到版本号相对应的版本
 或者 通过 git reset --hard head（尖角号） 来回退  一个尖角号代表前一个版本，两个为上上版本。。。往上100个版本为 head~100
 4. 回退到上个版本号后 通过git log 看不到最新的版本号了，可以通过 git reflog 来查看所有操作，从而拿到最新版本的commit id，再通过 git reset --hard 版本号  指令进行版本的更新就ok
+
+
 >>>工作区与缓存区
 1. 工作区：电脑里能看到的就是工作区
 2. 版本库：工作区的隐藏目录 .git 就是Git的版本库 存储的是 stage 的暂存区，Git自动创建的第一个分支master，以及指向master的指针HEAD 。。。
@@ -20,20 +26,24 @@
 ①用 git add 把文件添加进去，实际就是讲文件修改添加到暂存区
 ②用 git commit 提交更改，实际就是讲暂存区的所有内容提交到当前分支 master
 
+
 >>>管理修改
 git 管理的是修改，并不是文件。
 如果当前修改文件后，执行了 git add命令后 在进行文件的修改，然后再执行  git commit 命令，此时最新版本的文件只有第一次修改的内容，使用 git status 命令查看 发现第二次修改的内容没有进行被提交，所以管理的是修改，并不是文件
+
 
 >>>撤销修改
 当文件在工作区时撤销修改：git checkout --文件名
 当文件提交到缓存区后：① 用 git reset head 文件名  把暂存区的修改撤销掉，放回工作区  ② 用 git checkout --文件名 将这个文件回到最近一次的 git commit 或者  git add状态
 提交到 master 上的 的文件只能用 git reset --hard 版本号 来进行恢复到上个版本。
 
+
 >>>删除文件
 当一个文件添加到git中并提交后，然后在文件管理器中删除了这个文件， 执行 git status 命令时，会提示 哪些文件被删除了。
 此时可进行两种操作：
 1. 在版本库中删除这个文件 执行 git rm text.txt 语句
 2. 在文件管理器上是误删操作，从版本库恢复到本机 执行 git checkout -- 文件名
+
 
 >>>分支
 创建dev分支并进入 ： git checkout -b dev 
@@ -45,15 +55,14 @@ git 管理的是修改，并不是文件。
 >>>添加远程库
 首先看电脑是否有SSH key 有的话直接复制公钥，没有的话在shell中打开gitbash 创建SSH key 指令 ssh-keygen -t rsa -C"你的邮箱地址"
 拿到SSH key后，复制公钥，到github上查找 add sshkey 按钮，填入并创建。
-
 添加远程库：
 1. 先在github上 new 一个 repo，填写name，其余默认，然后create
 2. 在本地的git仓库中运行 git remote add origin 连接地址  # origin为库名，连接地址从github上获取，采用ssh连接。
 3. 将本地库内容推送到远程库上 执行 git push -u origin master
-
 #删除远程库名 git remote rm 库名
 从远程库取修改的数据
 git pull
+
 
 >>>解决本地库与远程库不同步冲突
 先将远程库的内容拉回本地库，进行修改后在提交到本地库，在push到远程库
