@@ -33,4 +33,10 @@ git 管理的是修改，并不是文件。
 当一个文件添加到git中并提交后，然后在文件管理器中删除了这个文件， 执行 git status 命令时，会提示 哪些文件被删除了。
 此时可进行两种操作：
 1. 在版本库中删除这个文件 执行 git rm text.txt 语句
-2. 在文件管理器上是误删操作，从版本库恢复到本机 执行 git checkout -- 文件名 
+2. 在文件管理器上是误删操作，从版本库恢复到本机 执行 git checkout -- 文件名
+
+>>>分支
+创建dev分支并进入 ： git checkout -b dev 
+查看所有分支 ： git branch   会在当前分支前面加上 * 
+切换两个分支 :  git checkout master 
+
